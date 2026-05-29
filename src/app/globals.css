@@ -1,0 +1,435 @@
+/* ==========================================================================
+   VITZ.AI PREMIUM FUTURISTIC GROW SYSTEM - DESIGN TOKENS & STYLES (VANILLA CSS)
+   ========================================================================== */
+
+/* 1. Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+/* 2. Core Theme Variables */
+:root {
+  /* Colors */
+  --bg-primary: #060608;       /* Deeper matte black for extreme contrast */
+  --bg-secondary: #0c0c0e;     /* Charcoal grey */
+  --bg-card: #121215;          /* Elevated slate black card background */
+  --bg-card-hover: #18181d;    /* Lighter slate black */
+  
+  --text-primary: #ffffff;     /* Pure white for maximum readability */
+  --text-secondary: #a1a1a8;   /* Bright muted grey */
+  --text-muted: #7e7e86;       /* Clean silver */
+  
+  --accent-blue: #0071e3;      /* Apple Electric Blue */
+  --accent-blue-rgb: 0, 113, 227;
+  --accent-purple: #8622e6;    /* Violet glow accent */
+  --accent-purple-rgb: 134, 34, 230;
+  
+  --border-color: rgba(255, 255, 255, 0.1); /* Slightly thicker for clear boundaries */
+  --border-hover: rgba(255, 255, 255, 0.2);
+  
+  --glow-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  
+  /* Fonts */
+  --font-family-title: 'Outfit', 'Inter', -apple-system, sans-serif;
+  --font-family-body: 'Inter', 'Manrope', -apple-system, sans-serif;
+
+  /* Shadows & Glassmorphism */
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(18, 18, 21, 0.8);
+  --glass-blur: blur(16px);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-medium: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 3. Global Resets & Scrollbar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-family-body);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-card);
+  border-radius: 4px;
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+}
+
+/* 4. Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-title);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; }
+h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); }
+h3 { font-size: clamp(1.35rem, 2.2vw, 1.75rem); }
+p {
+  color: var(--text-secondary);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+/* 5. Utility Layout Classes & Dynamic Spacers */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem; /* Increased side padding for breathing room */
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Spacer utilities to prevent card border clamping */
+.mt-1 { margin-top: 1rem; }
+.mt-1-5 { margin-top: 1.5rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+/* 6. Glowing Ambient Blobs & Moving Digital Mesh background */
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: -2;
+  pointer-events: none;
+  animation: move-grid 40s infinite linear;
+}
+
+@keyframes move-grid {
+  from { background-position: 0 0; }
+  to { background-position: 60px 60px; }
+}
+
+.glowing-bg {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(140px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  animation: float-glow 25s infinite alternate ease-in-out;
+}
+.glow-blue {
+  background: var(--accent-blue);
+  top: -15%;
+  left: -10%;
+}
+.glow-purple {
+  background: var(--accent-purple);
+  bottom: -15%;
+  right: -10%;
+}
+
+@keyframes float-glow {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.05); }
+  100% { transform: translate(80px, 40px) scale(1.1); }
+}
+
+/* 7. Glassmorphism Card System with clean gaps and layouts */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: 20px;
+  padding: 3rem; /* Expanded internal padding to fix alignment and tightness */
+  box-shadow: var(--glass-shadow);
+  transition: transform var(--transition-medium), border-color var(--transition-medium), box-shadow var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Generous internal gap between elements */
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    padding: 2rem;
+    gap: 1.25rem;
+  }
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 113, 227, 0.4);
+  box-shadow: 0 15px 45px 0 rgba(0, 113, 227, 0.15);
+}
+
+/* 8. Interactive Glow Borders and Tech Accents */
+.border-glow-purple:hover {
+  border-color: rgba(134, 34, 230, 0.45);
+  box-shadow: 0 15px 45px 0 rgba(134, 34, 230, 0.15);
+}
+
+.glow-text {
+  background: var(--glow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 9. Futuristic Interactive High-Contrast Findable Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.95rem 2.4rem; /* Generous spacing */
+  font-family: var(--font-family-body);
+  font-size: 0.95rem;
+  font-weight: 700; /* Bolder text for clear contrast */
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition-medium);
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Explicit findable border */
+  gap: 0.6rem;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: var(--glow-gradient);
+  color: #ffffff !important;
+  box-shadow: 0 4px 25px rgba(0, 113, 227, 0.45), 0 0 12px rgba(134, 34, 230, 0.25); /* Ultra-visible glow shadows */
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--glow-gradient);
+  filter: blur(14px);
+  opacity: 0.55;
+  border-radius: 50px;
+  z-index: -1;
+  transition: var(--transition-medium);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 30px rgba(0, 113, 227, 0.6), 0 0 20px rgba(134, 34, 230, 0.45);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.35); /* High-contrast white border */
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+
+/* 10. Forms Styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form-input, .form-textarea, .form-select {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  color: var(--text-primary);
+  font-family: var(--font-family-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--accent-blue);
+  background: rgba(0, 113, 227, 0.03);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.25);
+}
+
+.form-textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* 11. Subtle premium animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Modern navigation items */
+.nav-link {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  position: relative;
+  padding: 0.5rem 0;
+}
+.nav-link:hover {
+  color: var(--text-primary);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--glow-gradient);
+  transition: width var(--transition-medium);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+.nav-link-active {
+  color: var(--text-primary) !important;
+}
+.nav-link-active::after {
+  width: 100% !important;
+}
+
+/* Glowing badge for futuristic vibe */
+.glow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 113, 227, 0.08);
+  border: 1px solid rgba(0, 113, 227, 0.3);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.45rem 1.1rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 15px rgba(0, 113, 227, 0.1);
+}
+
+.glow-badge-purple {
+  background: rgba(134, 34, 230, 0.08);
+  border: 1px solid rgba(134, 34, 230, 0.3);
+  color: #c084fc;
+  box-shadow: 0 0 15px rgba(134, 34, 230, 0.1);
+}
+
+/* CRM Lead Board Status Labels */
+.status-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.status-pill-new { background: rgba(0, 113, 227, 0.12); color: #38bdf8; border: 1px solid rgba(0, 113, 227, 0.3); }
+.status-pill-contacted { background: rgba(134, 34, 230, 0.12); color: #c084fc; border: 1px solid rgba(134, 34, 230, 0.3); }
+.status-pill-converted { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
