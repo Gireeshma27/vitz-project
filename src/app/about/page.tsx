@@ -108,7 +108,7 @@ export default function About() {
       <section className="about-creed-section">
         <div className="container">
           <div className="creed-box glass-card">
-            <span className="glow-badge">International Standards</span>
+            <span className="glow-badge" style={{ alignSelf: 'center' }}>International Standards</span>
             <h2>Who We Work With</h2>
             <p>
               We thrive with high-vision builders, VC-backed startups, healthcare tech systems, real estate operations, and SMEs looking for long-term international expansion.

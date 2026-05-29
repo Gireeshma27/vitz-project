@@ -68,7 +68,7 @@ export default function Contact() {
             
             {/* Left Col: Credentials */}
             <div className="contact-info-col">
-              <span className="glow-badge glow-badge-purple">Direct Channels</span>
+              <span className="glow-badge glow-badge-purple" style={{ alignSelf: 'center' }}>Direct Channels</span>
               <h2>Global Headquarters</h2>
               <p className="info-intro-p">Our primary operational offices are optimized for remote international synchronization and strategic consulting.</p>
 
@@ -88,7 +88,11 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="info-item">
-                  <span className="info-icon">💬</span>
+                  <span className="info-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                  </span>
                   <div>
                     <h4>WhatsApp Business Chat</h4>
                     <p className="text-white">Syncs instantly to AI CRM</p>

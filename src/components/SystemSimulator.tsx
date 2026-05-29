@@ -238,6 +238,7 @@ export default function SystemSimulator() {
           border-color: rgba(0, 113, 227, 0.15);
           box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 113, 227, 0.1);
           overflow: hidden;
+          height: 560px; /* Lock the card height completely, but make it large enough */
         }
 
         .sim-header {
@@ -308,7 +309,7 @@ export default function SystemSimulator() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 0.25rem;
+          gap: 0.5rem;
           opacity: 0.3;
           transition: opacity 0.5s ease, transform 0.5s ease;
           z-index: 5;
@@ -411,7 +412,8 @@ export default function SystemSimulator() {
           border-radius: 8px;
           border: 1px solid var(--border-color);
           padding: 1.5rem;
-          min-height: 230px;
+          height: 360px;
+          overflow-y: auto;
         }
 
         /* 0. Idle Styling */
@@ -483,18 +485,23 @@ export default function SystemSimulator() {
         /* 2. Intake Card styling */
         .intake-view {
           width: 100%;
+          height: 100%;
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
+          gap: 1rem;
           align-items: center;
+          justify-content: center;
         }
 
         .lead-card {
           width: 100%;
           max-width: 350px;
-          padding: 1.25rem;
+          padding: 1.25rem !important;
+          border-radius: 12px !important;
+          overflow: visible !important;
           border-color: rgba(0, 113, 227, 0.2);
           box-shadow: 0 10px 25px rgba(0, 113, 227, 0.05);
+          gap: 0 !important;
         }
 
         .card-top {
@@ -506,12 +513,14 @@ export default function SystemSimulator() {
 
         .lead-card h3 {
           font-size: 1.15rem;
-          margin-bottom: 0.15rem;
+          margin-bottom: 0.4rem;
         }
 
         .company {
+          display: block;
           font-size: 0.8rem;
           color: var(--text-secondary);
+          margin-bottom: 0.5rem;
         }
 
         .lead-card .divider {
