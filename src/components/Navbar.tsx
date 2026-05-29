@@ -52,9 +52,9 @@ export default function Navbar() {
             <Link href="#book" className="btn btn-primary btn-nav">
               Book Consultation
             </Link>
-            <Link href="/admin" className="admin-pill" title="Lead Dashboard CRM">
+            {/* <Link href="/admin" className="admin-pill" title="Lead Dashboard CRM">
               CRM Admin
-            </Link>
+            </Link> */}
             <button 
               className={`mobile-menu-btn ${mobileMenuOpen ? 'open' : ''}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -92,13 +92,13 @@ export default function Navbar() {
               >
                 Book Consultation
               </Link>
-              <Link
+              {/* <Link
                 href="/admin"
                 className="admin-pill-mobile"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 CRM Admin Dashboard
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
