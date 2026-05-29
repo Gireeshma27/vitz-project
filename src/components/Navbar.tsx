@@ -49,7 +49,7 @@ export default function Navbar() {
           </nav>
 
           <div className="nav-actions">
-            <Link href="#book" className="btn btn-primary btn-nav">
+            <Link href="#book" className="btn btn-primary btn-nav hide-on-mobile">
               Book Consultation
             </Link>
             {/* <Link href="/admin" className="admin-pill" title="Lead Dashboard CRM">
@@ -280,8 +280,11 @@ export default function Navbar() {
           .nav-menu {
             display: none;
           }
-          .btn-nav, .admin-pill {
-            display: none;
+          .btn-nav {
+            display: none !important;
+          }
+          .admin-pill {
+            display: none !important;
           }
           .mobile-menu-btn {
             display: flex;

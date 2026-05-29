@@ -110,9 +110,9 @@ export default function Portfolio() {
                 </div>
 
                 <div className="proj-footer">
-                  <Link href="#book" className="btn btn-primary" style={{ width: '100%' }}>
+                  {/* <Link href="#book" className="btn btn-primary" style={{ width: '100%' }}>
                     Configure Similar Ecosystem
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             ))}

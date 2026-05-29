@@ -431,5 +431,16 @@ a {
   gap: 0.25rem;
 }
 .status-pill-new { background: rgba(0, 113, 227, 0.12); color: #38bdf8; border: 1px solid rgba(0, 113, 227, 0.3); }
+.status-pill.offline {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+@media (max-width: 900px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
 .status-pill-contacted { background: rgba(134, 34, 230, 0.12); color: #c084fc; border: 1px solid rgba(134, 34, 230, 0.3); }
 .status-pill-converted { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }

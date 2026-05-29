@@ -157,9 +157,9 @@ export default function Solutions() {
                       
                       <div className="meta-footer">
                         <div className="divider"></div>
-                        <Link href="#book" className="btn btn-primary" style={{ width: '100%' }}>
+                        {/* <Link href="#book" className="btn btn-primary" style={{ width: '100%' }}>
                           Configure This Track
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                   </div>

@@ -83,9 +83,9 @@ export default function Industries() {
                   </div>
 
                   <div className="sector-footer">
-                    <Link href="#book" className="btn btn-secondary" style={{ width: '100%' }}>
+                    {/* <Link href="#book" className="btn btn-secondary" style={{ width: '100%' }}>
                       Initiate Sector Audit
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>
